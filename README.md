@@ -19,16 +19,18 @@ No analytical or parametric form of the distribution is assumed. The PDF is lear
    - Missing values are removed before processing.
 
 3. **Data Transformation**
+   
     A sinusoidal perturbation is applied to the data:
      `z = x + a_r sin(b_r x)`
       * r=102303699
-   
-       | Parameter | Formula | Value |
-       |-----------|----------|--------|
-       | ar | 0.5 * (r mod 7) | 2.0 |
-       | br | 0.3 * ((r mod 5) + 1) | 1.2 |
+        | Parameter | Formula | Value |
+        |-----------|---------|-------|
+        | a_r | 0.5 × (r mod 7) | 2.0 |
+        | b_r | 0.3 × ((r mod 5) + 1) | 1.2 |
+
 
  5. **Learning the PDF using GAN**
+    
      Since the analytical PDF of z is unknown, a Generative Adversarial Network (GAN) is used to learn the distribution implicitly.
 
     # GAN Architecture
@@ -45,19 +47,22 @@ No analytical or parametric form of the distribution is assumed. The PDF is lear
     
     # Training Details
 
-   - Latent dimension: 1
-   - Optimizer: Adam
-   - Loss function: Binary cross-entropy
-   - Epochs: 3000
-   - Batch size: 64
+      - Latent dimension: 1
+      - Optimizer: Adam
+      - Loss function: Binary cross-entropy
+      - Epochs: 3000
+      - Batch size: 64
 
   * Training continues until generator and discriminator losses converge near 0.69, indicating stable adversarial learning.
  5. **PDF Approximation**
+    
     After training the GAN:
     - A large number of synthetic samples were generated from the generator.  
     - The probability density function was estimated using:
     - Histogram Density Estimation
-      <img width="455" height="361" alt="image" src="https://github.com/user-attachments/assets/0f29fe61-636a-4a84-a2ad-fa8f28854408" />
+      
+      <img width="462" height="361" alt="image" src="https://github.com/user-attachments/assets/16df48b1-c2ed-4c61-b43f-cdb190e977ed" />
+
     - Kernel Density Estimation (KDE)
       
       <img width="452" height="356" alt="image" src="https://github.com/user-attachments/assets/6c91c811-dd79-4cd4-833f-348c918ddae3" />
