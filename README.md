@@ -33,7 +33,7 @@ No analytical or parametric form of the distribution is assumed. The PDF is lear
     
      Since the analytical PDF of z is unknown, a Generative Adversarial Network (GAN) is used to learn the distribution implicitly.
 
-    # GAN Architecture
+    ### GAN Architecture
      **Generator**
       - Input: Random noise ∼ N (0,1)
       - Fully connected neural network with LeakyReLU activations
@@ -45,7 +45,7 @@ No analytical or parametric form of the distribution is assumed. The PDF is lear
       
   * The generator tries to produce samples similar to real z, while the discriminator tries to distinguish between real and fake samples.
     
-    # Training Details
+    ### Training Details
 
       - Latent dimension: 1
       - Optimizer: Adam
