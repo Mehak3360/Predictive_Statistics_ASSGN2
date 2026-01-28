@@ -21,13 +21,12 @@ No analytical or parametric form of the distribution is assumed. The PDF is lear
 3. **Data Transformation**
     A sinusoidal perturbation is applied to the data:
      `z = x + a_r sin(b_r x)`
-     r=102303699
-     ar = 0.5 * (r mod 7)
-     br = 0.3 * ((r mod 5) + 1)
-     
-   values are:
+      * r=102303699
    
-  <img width="163" height="33" alt="image" src="https://github.com/user-attachments/assets/32f469b4-92ae-4454-b0f7-13085446586e" />
+       | Parameter | Formula | Value |
+       |-----------|----------|--------|
+       | ar | 0.5 * (r mod 7) | 2.0 |
+       | br | 0.3 * ((r mod 5) + 1) | 1.2 |
 
  5. **Learning the PDF using GAN**
      Since the analytical PDF of z is unknown, a Generative Adversarial Network (GAN) is used to learn the distribution implicitly.
